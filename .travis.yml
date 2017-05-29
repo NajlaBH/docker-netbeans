@@ -1,0 +1,26 @@
+sudo: false
+
+language: java
+jdk: oraclejdk8
+
+services:
+    - docker
+  
+before_script:
+    - DISPLAY=:0
+    - echo $DISPLAY
+    - $ip=192.168.99.100
+    - xhost + $ip
+    - xinit
+
+    
+before_install:
+    - docker pull bhntools/docker-netbeans
+    - docker run -d \
+                -e DISPLAY=$(ifconfig vboxnet0 | grep 'inet' | cut -d' ' -f2):0 \
+                -it bhntools/docker-netbeans:latest
+
+
+script:
+    - mvn clean verify
+
