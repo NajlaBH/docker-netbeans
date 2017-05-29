@@ -16,10 +16,8 @@ before_script:
 before_install:
     - docker pull carlad/sinatra
     - docker run -d -p 127.0.0.1:80:4567 carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec foreman start;"
-    - docker pull bhntools/docker-netbeans
-    - docker run -d \
-                -e DISPLAY=$(ifconfig vboxnet0 | grep 'inet' | cut -d' ' -f2):0 \
-                -it bhntools/docker-netbeans:latest
+    - docker build --build-arg DISPLAY=$(ifconfig vboxnet0 | grep 'inet ' | cut -d' ' -f2):0 -t bhntools/docker-netbeans:latest
+    - docker run -d -e DISPLAY=$(ifconfig vboxnet0 | grep 'inet ' | cut -d' ' -f2):0  -it bhntools/docker-netbeans:latest
     - docker ps -a
     - docker run carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec rake test
 
