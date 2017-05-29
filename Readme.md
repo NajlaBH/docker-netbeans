@@ -5,7 +5,7 @@
 <body>
     <header>
         <section style="color:blue;float:left;padding-right:20px;">
-         <img src="../imgs/dockerNetbeans.png" style="width:150px;height:100px;">
+         <img src="image/dockerNetbeans.png" style="width:150px;height:100px;">
          </section>
         <section style="color:navy;float:left;padding-left:15px;">
         <h1>docker-netbeans-images</h1>
