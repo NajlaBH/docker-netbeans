@@ -20,4 +20,4 @@ before_install:
 
 script:
     - docker run -d -e DISPLAY=$ip:0  -it bhntools/docker-netbeans:latest
-    - bundle exec rake test
+
