@@ -10,13 +10,15 @@
         <section style="color:navy;float:left;padding-left:15px;">
         <h1>docker-netbeans-images</h1>
         <citation>
-        Docker image for netbeans 8.2 et Java 8.</citation>
+        Docker image for netbeans 8.2 and Java 8.
+[![Build Status](https://travis-ci.org/NajlaBH/docker-netbeans.svg?branch=master)](https://travis-ci.org/NajlaBH/docker-netbeans)
+        </citation>
         </section>
     </header>
 <section style="color:navy;float:left;padding-left:15px;">
 <article>
 <h1 id='idtitle1'>I. What is this?</h1>
-<p>Docker image for netbeans 8.2 et Java 8.</p>
+<p>Docker image for netbeans 8.2 and Java 8.</p>
 <h1 id='idtitle2'>II. How to use it?</h1>
 <p>_* Pull the image_</p>
 <code><pre>docker pull bhntools/docker-netbeans:latest</pre></code>
