@@ -8,8 +8,8 @@ services:
 before_script:
     - DISPLAY=:0
     - echo $DISPLAY
-    - ip=192.168.99.100
-    - xhost +
+    - ip=:192.168.99.100
+    - xhost + $ip
 
     
 before_install:
