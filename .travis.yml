@@ -10,14 +10,11 @@ before_script:
     - echo $DISPLAY
     - ip=:192.168.99.100
     
-    
 before_install:
     - docker pull carlad/sinatra
     - docker run -d -p 127.0.0.1:80:4567 carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec foreman start;"
     - docker build --build-arg DISPLAY=$ip:0 -t bhntools/docker-netbeans:latest .
     - docker run carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec rake test"
 
-
 script:
     - docker run -d -e DISPLAY=$ip:0  -it bhntools/docker-netbeans:latest
-
