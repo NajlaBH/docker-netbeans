@@ -8,7 +8,7 @@ services:
 before_script:
     - DISPLAY=:0
     - echo $DISPLAY
-    - $ip=192.168.99.100
+    - ip=127.0.0.1
     - xhost + $ip
     - xinit
 
