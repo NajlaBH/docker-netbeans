@@ -4,8 +4,8 @@
 </head>
 <body>
     <header>
-        <section style="color:blue;float:left;padding-right:20px;">
-         <img src="image/dockerNetbeans.png" style="width:150px;height:100px;">
+        <section style="color:blue;float:left;padding-right:10px;">
+         <img src="image/dockerNetbeans.png" style="width:80px;height:75px;">
          </section>
         <section style="color:navy;float:left;padding-left:15px;">
         <h1>docker-netbeans-images</h1>
@@ -21,11 +21,11 @@
 <h1 id='idtitle1'>I. What is this?</h1>
 <p>Docker image for netbeans 8.2 and Java 8.</p>
 <h1 id='idtitle2'>II. How to use it?</h1>
-<p style="color:navy;">_*a) Pull the image_</p>
+<p style="color:navy;">_*a)Pull the image_</p>
 <code><pre>docker pull bhntools/docker-netbeans:latest</pre></code>
-<p style="color:navy;">_*b) Run the image_</p>
+<p style="color:navy;">_*b)Run the image_</p>
 <code><pre>docker run -d -e DISPLAY=$(ifconfig vboxnet0 | grep 'inet' | cut -d' ' -f2):0 -it bhntools/docker-netbeans:latest </pre></code>
-<p style="color:navy;">_*c) Link_</p>
+<p style="color:navy;">_*c)Link_</p>
 <a href='https://hub.docker.com/r/bhntools/docker-netbeans'>https://hub.docker.com/r/bhntools/docker-netbeans</a>
 
 <h1 id='idtitle4'> III. Issues and Contributing</h1> 
