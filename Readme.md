@@ -21,10 +21,12 @@
 <h1 id='idtitle1'>I. What is this?</h1>
 <p>Docker image for netbeans 8.2 and Java 8.</p>
 <h1 id='idtitle2'>II. How to use it?</h1>
-<p>_* Pull the image_</p>
+<p style="color:navy;">_*a) Pull the image_</p>
 <code><pre>docker pull bhntools/docker-netbeans:latest</pre></code>
-<p>_* Run the image_</p>
+<p style="color:navy;">_*b) Run the image_</p>
 <code><pre>docker run -d -e DISPLAY=$(ifconfig vboxnet0 | grep 'inet' | cut -d' ' -f2):0 -it bhntools/docker-netbeans:latest </pre></code>
+<p style="color:navy;">_*c) Link_</p>
+<a href='https://hub.docker.com/r/bhntools/docker-netbeans'>https://hub.docker.com/r/bhntools/docker-netbeans</a>
 
 <h1 id='idtitle4'> III. Issues and Contributing</h1> 
 <h2> III.1/ Support</h2>
@@ -36,7 +38,7 @@ If you are having issues, please let me know.
 * Issue Tracker: <a href="https://github.com/NajlaBH/ProJavas/issues">github</a><br>
 * Source Code: <a href="https://github.com/NajlaBH/ProJavas/pulls">github</a></p>
 <h2 id='idtitleE'> III.3/ Authors and Maintainers</h2>
-<p>BEN HASSINE NAJLA : <a href="MAILTO:bhndevtools@gmail.com?Subject=DockerBIum">bhndevtools@gmail.com</a></p>
+<p>BEN HASSINE NAJLA : <a href="MAILTO:bhndevtools@gmail.com?Subject=Docker-Netbeans82JDK8">bhndevtools@gmail.com</a></p>
 
 <section style="font: bold;color:green;align:center;font-size:small;">
 <footer>
