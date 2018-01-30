@@ -87,6 +87,34 @@ EXPOSE 9000
 EXPOSE 4567
 EXPOSE 4040
 EXPOSE 7077
+EXPOSE 4200
+
+
+
+#INSTALL NPM NODE CLI
+RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+RUN sudo apt-get install nodejs
+
+RUN sudo chmod -R 777 /usr/lib/node_modules
+RUN sudo chmod -R 777 /usr/bin/
+
+RUN mkdir -p /home/najlanetbeans/NetbeansProject
+RUN sudo chmod -R 777 /home/najlanetbeans
+RUN cd /home/najlanetbeans/NetbeansProject
+
+RUN sudo npm install -g @angular/cli
+
+RUN ng new ng-prj-tmp
+RUN cd ng-prj-tmp
+RUN npm install
+
+#INSTALL STARTER SPRING
+RUN cd /home/najlanetbeans/NetbeansProject
+
+COPY template .
+
+RUN sudo apt-get update -y 
+
 
 RUN wget http://bits.netbeans.org/netbeans/8.2/community/zip/netbeans-8.2-201610071157.zip -O ~/netbeans.zip && \
     unzip ~/netbeans.zip -d ~ && \
@@ -102,20 +130,33 @@ RUN useradd najlanetbean \
 
 # Define working directory.
 RUN sudo chmod -R 777 /home/najlanetbeans/netbeans
-RUN sudo mkdir -p /home/najlanetbeans/NetbeansProject
 RUN sudo chmod -R 777 /home/najlanetbeans/NetbeansProject
 
-USER najlanetbean
+
+
+
 #----------------------------- Be aware user access 777 not recommended -------------
-RUN sudo mkdir -p /home/najlanetbean/.netbeans/8.2
+RUN mkdir -p /home/najlanetbean/.netbeans/8.2
 RUN sudo chmod -R 777 /home/najlanetbean/.netbeans/8.2
-RUN sudo mkdir -p /home/najlanetbean/.cache/netbeans/8.2/lastModified
+RUN mkdir -p /home/najlanetbean/.cache/netbeans/8.2/lastModified
 RUN sudo chmod -R 777 /home/najlanetbean/.cache/netbeans/8.2/lastModified
 RUN sudo chmod -R 777 /home/najlanetbeans/NetbeansProject
 
 RUN sudo chmod -R a+rwX /home/najlanetbean/
 RUN sudo chmod -R a+rwX /home/najlanetbeans/netbeans/
 RUN sudo chmod -R a+rwX /home/najlanetbeans/NetbeansProject
+
+
+RUN sudo apt-get update -y 
+
+
+RUN echo $(java -version)
+RUN echo $(npm -v)
+RUN echo $(node -v)
+
+
+USER najlanetbean 
+
 
 ENV HOME /home/najlanetbean
 
