@@ -104,14 +104,11 @@ RUN cd /home/najlanetbeans/NetbeansProject
 
 RUN sudo npm install -g @angular/cli
 
-RUN ng new ng-prj-tmp
-RUN cd ng-prj-tmp
-RUN npm install
 
 #INSTALL STARTER SPRING
 RUN cd /home/najlanetbeans/NetbeansProject
 
-COPY template .
+
 
 RUN sudo apt-get update -y 
 
@@ -134,6 +131,12 @@ RUN sudo chmod -R 777 /home/najlanetbeans/NetbeansProject
 
 
 
+RUN sudo add-apt-repository ppa:mozillateam/firefox-next
+
+RUN sudo apt-get update -y 
+RUN sudo apt-get upgrade -y 
+RUN sudo apt-get install -y firefox
+RUN sudo apt-get update -y 
 
 #----------------------------- Be aware user access 777 not recommended -------------
 RUN mkdir -p /home/najlanetbean/.netbeans/8.2
@@ -156,10 +159,18 @@ RUN echo $(node -v)
 
 
 USER najlanetbean 
-
-
+#RUN sudo chown najlanetbean najlanetbeans
 ENV HOME /home/najlanetbean
-
 WORKDIR /home/najlanetbeans
+
+RUN cd /home/najlanetbeans/NetbeansProject
+RUN mkdir -p /home/najlanetbeans/NetbeansProject/template
+COPY template /home/najlanetbeans/NetbeansProject/template/
+
+WORKDIR /home/najlanetbeans/NetbeansProject
+RUN ng new ng-prj-tmp
+#RUN ng test
+#RUN npm install
+
 
 CMD [ "/home/najlanetbeans/netbeans/bin/netbeans" ]
